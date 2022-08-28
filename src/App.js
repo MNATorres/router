@@ -1,18 +1,20 @@
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from './pages/HomePage.js';
+import Tablas from './pages/Tablas';
+import Users from "./pages/Users";
+import NotFoundPages from "./pages/NotFoundPages";
 
 function App() {
-  return ( 
-  <div>
-    <h1>React Touter</h1>
-    <a 
-    href="https://v5.reactrouter.com/web/guides/quick-start"
-    target="_blank"
-    rel="noreferrer"
-     >
-      Documentación
-     </a>
-     <hr/>
-  </div>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/tablas" element={<Tablas/>} />
+        <Route path="/users" element={<Users/>} />
+        <Route path="*" element={<NotFoundPages/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
